@@ -143,7 +143,21 @@ void AddPoint(int x, int y, _BYTE in)
 	else
 	{
 		if (in)
+		{
 			tmpit->second->state = in;
+			if (numNeighbors == 8)
+			{
+				AddPoint(x - 1, y - 1, 0); AddPoint(x + 1, y - 1, 0);
+				AddPoint(x - 1, y + 1, 0); AddPoint(x + 1, y + 1, 0);
+				AddPoint(x, y - 1, 0); AddPoint(x - 1, y, 0);
+				AddPoint(x + 1, y, 0); AddPoint(x, y + 1, 0);
+			}
+			else
+			{
+				AddPoint(x, y - 1, 0); AddPoint(x - 1, y, 0);
+				AddPoint(x + 1, y, 0); AddPoint(x, y + 1, 0);
+			}
+		}
 	}
 }
 
